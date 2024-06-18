@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario con Redis</title>
+</head>
+<body>
+    <h1>Inventario con Redis</h1>
+    
+    <h2>Agregar Producto</h2>
+    <form action="/agregar" method="post">
+        <label for="producto_id">ID del Producto:</label><br>
+        <input type="text" id="producto_id" name="producto_id"><br>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="cantidad">Cantidad:</label><br>
+        <input type="text" id="cantidad" name="cantidad"><br>
+        <label for="precio">Precio:</label><br>
+        <input type="text" id="precio" name="precio"><br><br>
+        <input type="submit" value="Agregar">
+    </form>
+
+    <h2>Actualizar Cantidad</h2>
+    <form action="/actualizar" method="post">
+        <label for="producto_id">ID del Producto:</label><br>
+        <input type="text" id="producto_id" name="producto_id"><br>
+        <label for="cantidad">Cantidad a Añadir/Remover:</label><br>
+        <input type="text" id="cantidad" name="cantidad"><br><br>
+        <input type="submit" value="Actualizar">
+    </form>
+
+    <h2>Consultar Cantidad</h2>
+    <form action="/consultar" method="post">
+        <label for="producto_id">ID del Producto:</label><br>
+        <input type="text" id="producto_id" name="producto_id"><br><br>
+        <input type="submit" value="Consultar">
+    </form>
+
+    <h2>Realizar Venta</h2>
+    <form action="/vender" method="post">
+        <label for="producto_id">ID del Producto:</label><br>
+        <input type="text" id="producto_id" name="producto_id"><br>
+        <label for="cantidad">Cantidad a Vender:</label><br>
+        <input type="text" id="cantidad" name="cantidad"><br><br>
+        <input type="submit" value="Vender">
+    </form>
+
+    {% if producto and cantidad %}
+    <h3>Consulta de Producto</h3>
+    <p>Producto: {{ producto }}</p>
+    <p>Cantidad: {{ cantidad }}</p>
+    {% endif %}
+</body>
+</html>
